@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Test.Web.Models.Entity.EmployeeEntity>
+
+@{
+    ViewBag.Title = "List Employee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center text-success">Search Employee</h2>
+
+
+@using (Html.BeginForm())
+{
+    <div class="col-xs-12">
+        <input id="idEmployee" name="idEmployee" class="form-control input-lg" />
+        <br />
+        <a class="btn btn-primary" id="btnSearchEmployees"> Get Employee </a>
+    </div>
+
+    <div class="container">
+        <div>
+            <table class="table table-hover dyntable" id="dynamictable" style="display: none">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="head0">Name</th>
+                        <th scope="head1">Contract Type</th>
+                        <th scope="head0">Role ID</th>
+                        <th scope="head1">Role Name</th>
+                        <th scope="head0">Role Description</th>
+                        <th scope="head1">Hour Salary</th>
+                        <th scope="head0">Month Salary</th>
+                        <th scope="head1">Anual Salary</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("form").keypress(function (e) {
+                if (e.which == 13) {
+                    return false;
+                }
+            });
+        });
+    </script>
+}
